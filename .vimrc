@@ -24,6 +24,8 @@ set encoding=utf-8
 
 set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set laststatus=2
+set t_Co=256
 
 set nocompatible
 if has('vim_starting')
