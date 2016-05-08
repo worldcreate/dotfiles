@@ -33,6 +33,10 @@ call neobundle#begin(expand('~/.vim/bundle'))
 NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'scrooloose/syntastic'
+NeoBundle 'Townk/vim-autoclose'
+NeoBundle 'Shougo/vimshell'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'itchyny/lightline.vim'
 
 call neobundle#end()
 filetype plugin indent on
