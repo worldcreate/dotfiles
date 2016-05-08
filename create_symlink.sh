@@ -10,6 +10,8 @@ for dotfile in .?*; do
             continue;;
         .git)
             continue;;
+		.gitignore)
+			continue;;
         .vimperator)
             ln -Fis "$PWD/$dotfile/plugin" $HOME/$dotfile/plugin
             ;;
