@@ -26,6 +26,7 @@ set list
 set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set t_Co=256
+let g:seiya_auto_enable=1
 
 set nocompatible
 if has('vim_starting')
@@ -39,6 +40,7 @@ NeoBundle 'Townk/vim-autoclose'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'itchyny/lightline.vim'
+NeoBundle 'miyakogi/Seiya.vim'
 
 call neobundle#end()
 filetype plugin indent on
