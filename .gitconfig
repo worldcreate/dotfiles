@@ -1,0 +1,11 @@
+[alias]
+    graph=log --oneline --graph --all --decorate=full
+[user]
+	email = furatsuki_fiskm@yahoo.co.jp
+	name = worldcreate
+[core]
+    editor=vim
+[diff]
+	tool = vimdiff
+[difftool]
+	prompt = false
