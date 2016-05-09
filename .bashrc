@@ -16,3 +16,5 @@ GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUPSTREM=auto
 
 export PS1='[\[\033[0;32m\]\u@\h \[\033[0;34m\]\w\[\033[0m\]]\[\033[36m\]$(__git_ps1)\[\033[00m\]\$ '
+
+alias ls='ls --color'
