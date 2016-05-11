@@ -27,6 +27,7 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set t_Co=256
 let g:seiya_auto_enable=1
+let g:auto_ctags = 1
 
 set nocompatible
 if has('vim_starting')
@@ -41,6 +42,7 @@ NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'miyakogi/Seiya.vim'
+NeoBundle 'soramugi/auto-ctags.vim'
 
 call neobundle#end()
 filetype plugin indent on
