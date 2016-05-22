@@ -43,6 +43,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'miyakogi/Seiya.vim'
 NeoBundle 'soramugi/auto-ctags.vim'
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 
