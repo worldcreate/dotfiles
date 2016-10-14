@@ -1,5 +1,5 @@
 syntax on
-colorscheme zenburn
+colorscheme iceberg
 
 set backspace=indent,eol,start
 
