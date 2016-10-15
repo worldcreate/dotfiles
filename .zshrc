@@ -2,7 +2,7 @@
 alias='pacman=pacman --color'
 # 環境変数
 export LANG=ja_JP.UTF-8
-export TERM=xterm-256color
+export TERM="screen-256color"
 export EDITOR=/usr/bin/vim
 eval `dircolors ~/.colorrc`
 
@@ -46,27 +46,27 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
 # ps コマンドのプロセス名補完
-zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+# zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 
 ########################################
 # vcs_info
-autoload -Uz vcs_info
-autoload -Uz add-zsh-hook
+#autoload -Uz vcs_info
+#autoload -Uz add-zsh-hook
 
-zstyle ':vcs_info:*' formats '%F{cyan}(%b)%f'
-zstyle ':vcs_info:*' actionformats '%F{red}(%b|%a)%f'
+#zstyle ':vcs_info:*' formats '%F{cyan}(%b)%f'
+#zstyle ':vcs_info:*' actionformats '%F{red}(%b|%a)%f'
 
-function _update_vcs_info_msg() {
-    LANG=en_US.UTF-8 vcs_info
-    #RPROMPT="${vcs_info_msg_0_}"
-	# プロンプト
-	# 1行表示
-	#PROMPT="%~ %# "
-	# 2行表示
-	PROMPT="[%{${fg[green]}%}%n@%m %{${fg[blue]}%}%~%{${reset_color}%}]%{${vcs_info_msg_0_}%}%# "
-}
-add-zsh-hook precmd _update_vcs_info_msg
+#function _update_vcs_info_msg() {
+#    LANG=en_US.UTF-8 vcs_info
+#    #RPROMPT="${vcs_info_msg_0_}"
+#	# プロンプト
+#	# 1行表示
+#	#PROMPT="%~ %# "
+#	# 2行表示
+#	PROMPT="[%{${fg[green]}%}%n@%m %{${fg[blue]}%}%~%{${reset_color}%}]%{${vcs_info_msg_0_}%}%# "
+#}
+#add-zsh-hook precmd _update_vcs_info_msg
 
 
 ########################################
@@ -163,11 +163,14 @@ case ${OSTYPE} in
         ;;
 esac
 
+# vim:set ft=zsh:
+
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/riku/.sdkman"
-
-# vim:set ft=zsh:
 [[ -s "/home/riku/.sdkman/bin/sdkman-init.sh" ]] && source "/home/riku/.sdkman/bin/sdkman-init.sh"
 export PATH="$HOME/.jenv/bin:$PATH"
 eval "$(jenv init -)"
 export PATH="$HOME/.local/bin/:$PATH"
+
+powerline-daemon -q
+. /home/riku/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh

@@ -27,6 +27,9 @@ set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set t_Co=256
 
+set rtp+=/home/riku/.local/lib/python3.5/site-packages/powerline/bindings/vim/
+set laststatus=2
+
 set nocompatible
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim
@@ -42,6 +45,7 @@ NeoBundle 'Shougo/vimfiler.vim'
 " NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'miyakogi/Seiya.vim'
 NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'tfnico/vim-gradle'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 
