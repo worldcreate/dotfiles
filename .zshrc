@@ -163,4 +163,11 @@ case ${OSTYPE} in
         ;;
 esac
 
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/riku/.sdkman"
+
 # vim:set ft=zsh:
+[[ -s "/home/riku/.sdkman/bin/sdkman-init.sh" ]] && source "/home/riku/.sdkman/bin/sdkman-init.sh"
+export PATH="$HOME/.jenv/bin:$PATH"
+eval "$(jenv init -)"
+export PATH="$HOME/.local/bin/:$PATH"
