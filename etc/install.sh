@@ -1,4 +1,4 @@
-dotfile_remote_address='git@github.com:worldcreate/dotfiles.git'
+dotfile_remote_address='https://github.com/worldcreate/dotfiles.git'
 dotfile_path="$HOME/dotfiles"
 
 is_exists() {
