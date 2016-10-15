@@ -4,7 +4,7 @@ alias='pacman=pacman --color'
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export EDITOR=/usr/bin/vim
-dircolors ~/.colorrc > /dev/null
+eval `dircolors ~/.colorrc`
 
 # 色を使用出来るようにする
 autoload -Uz colors
