@@ -1,7 +1,4 @@
 #!/bin/sh
-cd $(dirname $0)
-git submodule init
-git submodule foreach 'git pull origin master'
 for dotfile in .?*; do
     case $dotfile in
         *.elc)
@@ -16,7 +13,12 @@ for dotfile in .?*; do
             ln -Fis "$PWD/$dotfile/plugin" $HOME/$dotfile/plugin
             ;;
         *)
-            ln -Fis "$PWD/$dotfile" $HOME
+		if [ ! -e $PWD/$dotfile ]; then
+				# 存在しない場合
+				ln -Fis "$PWD/$dotfile" $HOME
+				echo "$dotfileを$HOMEにリンクを貼ります"
+			fi
             ;;
     esac
 done
+echo "complete!"
