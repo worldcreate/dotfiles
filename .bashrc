@@ -1,6 +1,6 @@
 export EDITOR=/usr/bin/vim
 export TERM=xterm-256color
-dircolors ~/.colorrc > /dev/null
+eval `dircolors ~/.colorrc`
 
 if [ -f $HOME/dotfiles/git-completion.bash ]; then
 	source $HOME/dotfiles/git-completion.bash
