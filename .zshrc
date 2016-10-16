@@ -2,7 +2,7 @@
 alias='pacman=pacman --color'
 # 環境変数
 export LANG=ja_JP.UTF-8
-export TERM="screen-256color"
+export TERM=xterm-256color
 export EDITOR=/usr/bin/vim
 eval `dircolors ~/.colorrc`
 
