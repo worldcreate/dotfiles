@@ -27,7 +27,12 @@ else
 fi
 
 
-alias ls='ls --color'
+case ${OSTYPE} in
+	cygwin)
+		alias ls='ls --color=auto'
+		source "$HOME/.color/mintty-iceberg"
+		;;
+esac
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 if [ -e $HOME/.sdkman ]; then
