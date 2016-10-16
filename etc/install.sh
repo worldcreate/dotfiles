@@ -22,6 +22,7 @@ dotfile_download() {
 			mv dotfiles-master $HOME/dotfiles
 		else
 			echo 'インストールに失敗しました'
+			echo 'curl か git を用意してください'
 			exit 1
 		fi
 	fi
