@@ -11,11 +11,11 @@ if [ $? = 0 ]; then
 	. $HOME/.local/lib/python3.5/site-packages/powerline/bindings/bash/powerline.sh
 else
 	if [ -f $HOME/dotfiles/bin/git-completion.bash ]; then
-		source $HOME/dotfiles/git-completion.bash
+		source $HOME/dotfiles/bin/git-completion.bash
 	fi
 
 	if [ -f $HOME/dotfiles/bin/git-prompt.sh ]; then
-		source $HOME/dotfiles/git-prompt.sh
+		source $HOME/dotfiles/bin/git-prompt.sh
 	fi
 	GIT_PS1_SHOWDIRTYSTATE=true
 	GIT_PS1_SHOWUNTRACKEDFILES=true
