@@ -15,7 +15,7 @@ cd $bundle_path
 if is_exists "git"; then
 	git clone https://github.com/Shougo/neobundle.vim
 elif is_exists "curl"; then
-	curl https://github.com/Shougo/neobundle.vim/dotfiles/archive/master.tar.gz | tar zxv
+	curl https://github.com/Shougo/neobundle.vim/archive/master.tar.gz | tar zxv
 else
 	echo "neobundleのインストールに失敗"
 	exit 1
