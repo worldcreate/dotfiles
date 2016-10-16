@@ -19,7 +19,7 @@ dotfile_download() {
 			if is_exists "curl"; then
 				curl -L $tarball
 			fi | tar zxv
-			mv $HOME/dotfiles-master $HOME/dotfiles
+			mv dotfiles-master $HOME/dotfiles
 		else
 			echo 'インストールに失敗しました'
 			exit 1
