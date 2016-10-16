@@ -13,12 +13,30 @@ dotfile_download() {
 	else
 		if is_exists "git"; then
 			git clone $dotfile_remote_address $dotfile_path
+		elif is_exists "curl" || is_exists "wget"; then
+			local tarball='https://github.com/worldcreate/dotfiles/archive/master.tar.gz'
+
+			if is_exists "curl"; then
+				curl -L $tarball
+			fi | tar zxv
+			mv $HOME/dotfiles-master $HOME/dotfiles
+		else
+			echo 'インストールに失敗しました'
+			exit 1
 		fi
 	fi
 }
 
+dotfile_init() {
+	cd $HOME/dotfiles
+	make init
+	make deploy
+}
+
 dotfile_install() {
 	dotfile_download
+
+	dotfile_init
 }
 
 logs="
