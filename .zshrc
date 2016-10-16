@@ -162,12 +162,12 @@ if [ $? = 0 ]; then
 	powerline-daemon -q
 	. $HOME/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
 else
-	 ps コマンドのプロセス名補完
+	 # ps コマンドのプロセス名補完
 	 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
 
 
 	#######################################
-	vcs_info
+	# vcs_info
 	autoload -Uz vcs_info
 	autoload -Uz add-zsh-hook
 
