@@ -48,6 +48,6 @@ logs="
  |____/|_| |_|\___/ \_/\_/  \____|_|_|  |_|
 "
 
-echo "$logs"
+echo -e "\033[0;36m$logs\033[m"
 
 dotfile_install
