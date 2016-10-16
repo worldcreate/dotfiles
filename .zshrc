@@ -45,28 +45,6 @@ zstyle ':completion:*' ignore-parents parent pwd ..
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin \
                    /usr/sbin /usr/bin /sbin /bin /usr/X11R6/bin
 
-# ps コマンドのプロセス名補完
-# zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
-
-
-########################################
-# vcs_info
-#autoload -Uz vcs_info
-#autoload -Uz add-zsh-hook
-
-#zstyle ':vcs_info:*' formats '%F{cyan}(%b)%f'
-#zstyle ':vcs_info:*' actionformats '%F{red}(%b|%a)%f'
-
-#function _update_vcs_info_msg() {
-#    LANG=en_US.UTF-8 vcs_info
-#    #RPROMPT="${vcs_info_msg_0_}"
-#	# プロンプト
-#	# 1行表示
-#	#PROMPT="%~ %# "
-#	# 2行表示
-#	PROMPT="[%{${fg[green]}%}%n@%m %{${fg[blue]}%}%~%{${reset_color}%}]%{${vcs_info_msg_0_}%}%# "
-#}
-#add-zsh-hook precmd _update_vcs_info_msg
 
 
 ########################################
@@ -166,11 +144,41 @@ esac
 # vim:set ft=zsh:
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/home/riku/.sdkman"
-[[ -s "/home/riku/.sdkman/bin/sdkman-init.sh" ]] && source "/home/riku/.sdkman/bin/sdkman-init.sh"
-export PATH="$HOME/.jenv/bin:$PATH"
-eval "$(jenv init -)"
-export PATH="$HOME/.local/bin/:$PATH"
+if [ -e $HOME/.sdkman ]; then
+	export SDKMAN_DIR="$HOME/.sdkman"
+	[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+	export PATH="$HOME/.jenv/bin:$PATH"
+	eval "$(jenv init -)"
+	export PATH="$HOME/.local/bin/:$PATH"
+fi
 
-powerline-daemon -q
-. /home/riku/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+powerline-daemon -h >/dev/null 2>&1
+
+if [ $? = 0 ]; then
+	powerline-daemon -q
+	. $HOME/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+else
+	 ps コマンドのプロセス名補完
+	 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
+
+
+	#######################################
+	vcs_info
+	autoload -Uz vcs_info
+	autoload -Uz add-zsh-hook
+
+	zstyle ':vcs_info:*' formats '%F{cyan}(%b)%f'
+	zstyle ':vcs_info:*' actionformats '%F{red}(%b|%a)%f'
+
+	function _update_vcs_info_msg() {
+	    LANG=en_US.UTF-8 vcs_info
+	    #RPROMPT="${vcs_info_msg_0_}"
+		# プロンプト
+		# 1行表示
+		#PROMPT="%~ %# "
+		# 2行表示
+		PROMPT="[%{${fg[green]}%}%n@%m %{${fg[blue]}%}%~%{${reset_color}%}]%{${vcs_info_msg_0_}%}%# "
+	}
+	add-zsh-hook precmd _update_vcs_info_msg
+
+fi
