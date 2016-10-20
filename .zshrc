@@ -139,9 +139,10 @@ case ${OSTYPE} in
         #Linux用の設定
         alias ls='ls -F --color=auto'
         ;;
-	cygwin)
+	cygwin | msys)
 		alias ls='ls --color=auto'
 		source "$HOME/.color/mintty-iceberg"
+		source "$HOME/.zsh/.zshrc.win"
 		;;
 esac
 
