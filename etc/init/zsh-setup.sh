@@ -1,6 +1,6 @@
 #/bin/bash
 
-local zplug_install_path=$HOME/dotfiles/.zsh
+zplug_install_path=$HOME/dotfiles/.zsh
 
 if [ ! -e $zplug_install_path ]; then
 	mkdir -p $zplug_install_path
