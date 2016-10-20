@@ -138,10 +138,12 @@ case ${OSTYPE} in
     linux*)
         #Linux用の設定
         alias ls='ls -F --color=auto'
+		source "$HOME/.zsh/.zshrc.linux"
         ;;
 	cygwin | msys)
 		alias ls='ls --color=auto'
 		source "$HOME/.color/mintty-iceberg"
+		#Win用の設定ファイルを読み込む
 		source "$HOME/.zsh/.zshrc.win"
 		;;
 esac
