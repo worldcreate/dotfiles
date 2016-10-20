@@ -8,4 +8,4 @@ fi
 
 cd $zplug_install_path
 
-git clone https://github.com/zplug/zplug
+git clone https://github.com/zplug/zplug .zplug
