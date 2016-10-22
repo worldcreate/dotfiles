@@ -1,1 +1,7 @@
+alias ls='ls --color=auto'
+
+# mintty用のiceberg読み込み
+source "$HOME/.color/mintty-iceberg"
+
+# zshのインクリメンタルサーチのプラグイン
 source $HOME/.zsh/.plugin/incr*.zsh

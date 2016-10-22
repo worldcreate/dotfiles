@@ -1,4 +1,8 @@
-export ZPLUG_HOME=$HOME/.zsh/.zplug
+alias ls='ls -F --color=auto'
 
+# zplugのHOMEディレクトリ
+export ZPLUG_HOME=$HOME/.zsh/.zplug
+# zplugの読み込み
 source $ZPLUG_HOME/init.zsh
+# zplugのインストールリスト
 source $HOME/.zsh/plug_list.zsh
