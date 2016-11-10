@@ -1,0 +1,15 @@
+{
+	"name": "theme-iceberg",
+	"version": "0.1.0",
+	"publisher": "SnowGirl",
+	"engines": { "vscode": "*" },
+	"contributes": {
+		"themes": [
+			{
+				"label": "Iceberg",
+				"uiTheme": "vs-dark",
+				"path": "./themes/Iceberg.tmTheme"
+			}
+		]
+	}
+}
