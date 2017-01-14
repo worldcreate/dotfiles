@@ -11,6 +11,6 @@
 
 ## install
 ```shell
-curl https://raw.githubusercontent.com/worldcreate/dotfiles/etc/install.sh | bash
+curl https://raw.githubusercontent.com/worldcreate/dotfiles/master/etc/install.sh | bash
 ```
 
