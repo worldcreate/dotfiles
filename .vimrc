@@ -46,6 +46,9 @@ NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'miyakogi/Seiya.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'tfnico/vim-gradle'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+NeoBundle 'Xuyuanp/nerdtree-git-plugin'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle has('lua') ? 'Shougo/neocomplete' : 'Shougo/neocomplcache'
 
 
