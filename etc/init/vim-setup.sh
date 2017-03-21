@@ -6,16 +6,20 @@ is_exists() {
 }
 
 bundle_path=$HOME/dotfiles/.vim/bundle
-if [ ! -e $bundle_path ]; then
-	mkdir -p $bundle_path
+dein_path=$HOME/dotfiles/.vim/bundle/repos/github.com/Shougo/
+
+if [ -e $dein_path/dein.vim ]; then
+	echo "すでにdein.vimはインストールされています"
+	exit 1
 fi
 
-cd $bundle_path
+if [ ! -e $dein_path ]; then
+	mkdir -p $dein_path
+fi
 
 if is_exists "git"; then
-	git clone https://github.com/Shougo/neobundle.vim
-elif is_exists "curl"; then
-	curl -L https://github.com/Shougo/neobundle.vim/archive/master.tar.gz | tar zxv
+	cd $dein_path
+	git clone https://github.com/Shougo/dein.vim
 else
 	echo "neobundleのインストールに失敗"
 	exit 1
