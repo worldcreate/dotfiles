@@ -160,7 +160,7 @@ powerline-daemon -h >/dev/null 2>&1
 
 if [ $? = 0 ]; then
 	powerline-daemon -q
-	. $HOME/.local/lib/python3.5/site-packages/powerline/bindings/zsh/powerline.zsh
+	. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
 else
 	 # ps コマンドのプロセス名補完
 	 zstyle ':completion:*:processes' command 'ps x -o pid,s,args'
