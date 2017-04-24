@@ -51,7 +51,6 @@ hi! MatchParen ctermbg=237 ctermfg=255 guibg=#3e445e guifg=#ffffff
 hi! MoreMsg ctermfg=150 guifg=#b4be82
 hi! NonText ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
 hi! SpecialKey ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
-hi! Normal ctermbg=234 ctermfg=252 guibg=#161821 guifg=#c6c8d1
 hi! Operator ctermfg=110 guifg=#84a0c6
 hi! Pmenu ctermbg=236 ctermfg=251 guibg=#3d425b guifg=#c6c8d1
 hi! PmenuSbar ctermbg=236 guibg=#3d425b
