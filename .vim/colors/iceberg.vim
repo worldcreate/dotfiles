@@ -8,7 +8,7 @@
 "
 " File:       iceberg.vim
 " Maintainer: cocopon <cocopon@me.com>
-" Modified:   2016-05-18 17:28+0900
+" Modified:   2017-04-13 10:48+0900
 " License:    MIT
 
 
@@ -42,6 +42,9 @@ hi! Directory ctermfg=109 guifg=#89b8c2
 hi! Error ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
 hi! ErrorMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
 hi! WarningMsg ctermbg=234 ctermfg=203 guibg=#161821 guifg=#e27878
+hi! EndOfBuffer ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
+hi! NonText ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
+hi! SpecialKey ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
 hi! Folded ctermbg=235 ctermfg=245 guibg=#1e2132 guifg=#686f9a
 hi! FoldColumn ctermbg=235 ctermfg=239 guibg=#1e2132 guifg=#444b71
 hi! Function ctermfg=216 guifg=#e2a478
@@ -49,8 +52,7 @@ hi! Identifier cterm=NONE ctermfg=109 guifg=#89b8c2
 hi! LineNr ctermbg=235 ctermfg=239 guibg=#1e2132 guifg=#444b71
 hi! MatchParen ctermbg=237 ctermfg=255 guibg=#3e445e guifg=#ffffff
 hi! MoreMsg ctermfg=150 guifg=#b4be82
-hi! NonText ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
-hi! SpecialKey ctermbg=234 ctermfg=236 guibg=#161821 guifg=#242940
+hi! Normal ctermbg=234 ctermfg=252 guibg=#161821 guifg=#c6c8d1
 hi! Operator ctermfg=110 guifg=#84a0c6
 hi! Pmenu ctermbg=236 ctermfg=251 guibg=#3d425b guifg=#c6c8d1
 hi! PmenuSbar ctermbg=236 guibg=#3d425b
@@ -81,28 +83,49 @@ hi! Underlined cterm=underline ctermfg=110 gui=underline guifg=#84a0c6 term=unde
 hi! VertSplit ctermbg=233 ctermfg=233 guibg=#0f1117 guifg=#0f1117
 hi! Visual ctermbg=236 guibg=#272c42
 hi! WildMenu ctermbg=255 ctermfg=234 guibg=#d4d5db guifg=#17171b
-hi! ZenSpace ctermbg=203 guibg=#e27878
 hi! diffAdded ctermfg=150 guifg=#b4be82
 hi! diffRemoved ctermfg=203 guifg=#e27878
+hi! EasyMotionShade ctermfg=239 guifg=#3d425b
+hi! EasyMotionTarget ctermfg=150 guifg=#b4be82
+hi! EasyMotionTarget2First ctermfg=216 guifg=#e2a478
+hi! EasyMotionTarget2Second ctermfg=216 guifg=#e2a478
+hi! GitGutterAdd ctermbg=235 ctermfg=150 guibg=#1e2132 guifg=#b4be82
+hi! GitGutterChange ctermbg=235 ctermfg=109 guibg=#1e2132 guifg=#89b8c2
+hi! GitGutterChangeDelete ctermbg=235 ctermfg=109 guibg=#1e2132 guifg=#89b8c2
+hi! GitGutterDelete ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878
+hi! SyntasticErrorSign ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878
+hi! SyntasticStyleErrorSign ctermbg=235 ctermfg=203 guibg=#1e2132 guifg=#e27878
+hi! SyntasticStyleWarningSign ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
+hi! SyntasticWarningSign ctermbg=235 ctermfg=216 guibg=#1e2132 guifg=#e2a478
+hi! ZenSpace ctermbg=203 guibg=#e27878
+hi! icebergLLBase ctermbg=237 ctermfg=243 guibg=#34394e guifg=#696d80
+hi! icebergLLTabFill ctermbg=237 ctermfg=243 guibg=#34394e guifg=#696d80
+hi! icebergLLGradient ctermbg=241 ctermfg=234 guibg=#5a5f72 guifg=#17171b
+hi! icebergLLEdge ctermbg=245 ctermfg=234 guibg=#818596 guifg=#17171b
+hi! icebergLLNormal ctermbg=245 ctermfg=234 guibg=#818596 guifg=#17171b
+hi! icebergLLTabSel ctermbg=245 ctermfg=234 guibg=#818596 guifg=#17171b
+hi! icebergLLNC ctermbg=233 ctermfg=238 guibg=#0f1117 guifg=#3e445e
+hi! icebergLLError ctermbg=203 ctermfg=234 guibg=#e27878 guifg=#161821
+hi! icebergLLInsert ctermbg=110 ctermfg=234 guibg=#84a0c6 guifg=#161821
+hi! icebergLLReplace ctermbg=216 ctermfg=234 guibg=#e2a478 guifg=#161821
+hi! icebergLLWarning ctermbg=216 ctermfg=234 guibg=#e2a478 guifg=#161821
+hi! icebergLLVisual ctermbg=150 ctermfg=234 guibg=#b4be82 guifg=#161821
+hi! icebergALAccentRed ctermfg=203 guifg=#e27878
 
 hi! link cssBraces Delimiter
+hi! link cssTagName Statement
 hi! link helpHyperTextJump Constant
 hi! link htmlArg Constant
 hi! link htmlEndTag Statement
 hi! link htmlTag Statement
-hi! link jsFunction Function
-hi! link markdownCode String
-hi! link markdownCodeDelimiter String
-hi! link markdownHeadingDelimiter Comment
-hi! link markdownRule Comment
+hi! link jsonQuote Normal
 hi! link phpVarSelector Identifier
 hi! link rubyDefine Statement
 hi! link rubyInclude Statement
 hi! link rubyInterpolationDelimiter String
 hi! link rubySharpBang Comment
 hi! link rubyStringDelimiter String
-hi! link svssBraces Delimiter
-hi! link swiftIdentifier Normal
+hi! link shFunction Normal
 hi! link vimContinue Comment
 hi! link vimIsCommand Statement
 hi! link xmlAttribPunct Statement
@@ -111,3 +134,38 @@ hi! link xmlNamespace Statement
 hi! link xmlTag Statement
 hi! link xmlTagName Statement
 hi! link yamlKeyValueDelimiter Delimiter
+hi! link CtrlPPrtCursor Cursor
+hi! link CtrlPMatch Title
+hi! link CtrlPMode1 icebergLLGradient
+hi! link CtrlPMode2 StatusLine
+hi! link deniteMatched Normal
+hi! link deniteMatchedChar Function
+hi! link jsArrowFunction Operator
+hi! link jsFuncName Normal
+hi! link jsFunction Function
+hi! link jsGlobalObjects Statement
+hi! link jsModuleDefault Statement
+hi! link jsModuleKeywords Statement
+hi! link jsModuleOperators Statement
+hi! link jsObjectKey Identifier
+hi! link jsSuper Statement
+hi! link markdownBold Special
+hi! link markdownCode String
+hi! link markdownCodeDelimiter String
+hi! link markdownHeadingDelimiter Comment
+hi! link markdownRule Comment
+hi! link plug1 Normal
+hi! link plug2 Structure
+hi! link plugDash Comment
+hi! link plugMessage Special
+hi! link svssBraces Delimiter
+hi! link swiftIdentifier Normal
+hi! link typescriptAjaxMethods Normal
+hi! link typescriptBraces Normal
+hi! link typescriptEndColons Normal
+hi! link typescriptGlobalObjects Statement
+hi! link typescriptHtmlElemProperties Normal
+hi! link typescriptIdentifier Statement
+hi! link typescriptMessage Normal
+hi! link typescriptNull Constant
+hi! link typescriptParens Normal
