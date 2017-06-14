@@ -6,3 +6,12 @@ export ZPLUG_HOME=$HOME/.zsh/.zplug
 source $ZPLUG_HOME/init.zsh
 # zplugのインストールリスト
 source $HOME/.zsh/plug_list.zsh
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+	printf "Install? [y/N]: "
+	if read -q; then
+		echo; zplug install
+	fi
+fi
+
