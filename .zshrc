@@ -7,6 +7,7 @@
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
 export EDITOR=/usr/bin/vim
+export DOTFILES=$HOME/dotfiles
 eval `dircolors ~/.colorrc`
 
 # 各設定ファイルの読み込み
@@ -29,4 +30,14 @@ case ${OSTYPE} in
 		source "$HOME/.zsh/.zshrc.win"
 		;;
 esac
+
+# zwcがない場合コンパイルする
+if [ ! -e $HOME/.zshrc.zwc ]; then
+	zcompile ~/.zshrc
+fi
+
+# zshrcが更新されたら自動でコンパイルする
+if [ $DOTFILES/.zshrc -nt ~/.zshrc.zwc ]; then
+	zcompile ~/.zshrc
+fi
 
