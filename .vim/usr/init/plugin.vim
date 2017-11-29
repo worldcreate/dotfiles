@@ -1,3 +1,10 @@
+" powerline 用の設定
+set rtp+=$HOME/.local/lib/python3.5/site-packages/powerline/bindings/vim/
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup
+" ===================================
+
 " dein.vimの設定
 if &compatible
   set nocompatible
