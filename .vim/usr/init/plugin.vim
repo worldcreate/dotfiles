@@ -16,6 +16,7 @@ if dein#load_state('~/.vim/bundle/')
 	call dein#add('jistr/vim-nerdtree-tabs')
 	call dein#add('Xuyuanp/nerdtree-git-plugin')
 	call dein#add('airblade/vim-gitgutter')
+	call dein#add('justmao945/vim-clang')
 
 	call dein#end()
 	call dein#save_state()
