@@ -19,7 +19,7 @@ powerline-daemon -h >/dev/null 2>&1
 
 if [ $? = 0 ]; then
 	powerline-daemon -q
-	. /usr/lib/python3.6/site-packages/powerline/bindings/zsh/powerline.zsh
+	. $POWERLINE_PATH/bindings/zsh/powerline.zsh
 else
 	#######################################
 	# vcs_info
