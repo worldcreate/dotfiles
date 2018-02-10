@@ -13,3 +13,7 @@ nnoremap <CR> i<CR><ESC>
 
 " normal modeでCtrl+oで改行を挿入
 nnoremap <C-o> o<ESC>
+
+" insert modeで文途中で改行を挿入
+inoremap <C-o> <ESC>o
+
