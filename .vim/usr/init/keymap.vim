@@ -23,10 +23,3 @@ nnoremap <C-k> :split<CR> :exe("tjump ".expand('<cword>'))<CR>
 " Ctrl + ] で新規タブを開いてジャンプする
 nnoremap <C-]> :<C-u>tab stj <C-R>=expand('<cword>')<CR><CR>
 
-
-" ======================== unite ===================
-nnoremap    [unite]   <Nop>
-nmap    <Leader>f [unite]
-
-nnoremap <silent> [unite]f :<C-u>Unite<Space>file<CR>
-nnoremap <silent> [unite]b :<C-u>Unite<Space>buffer<CR>
