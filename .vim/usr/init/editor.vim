@@ -32,4 +32,5 @@ set laststatus=2
 
 set nocompatible
 
-
+" 編集中のファイルも切り替えれるようになる
+set hidden
