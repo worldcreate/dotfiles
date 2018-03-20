@@ -23,6 +23,8 @@ if dein#load_state('~/.vim/bundle/')
 	call dein#add('Xuyuanp/nerdtree-git-plugin')
 	call dein#add('airblade/vim-gitgutter')
 	call dein#add('justmao945/vim-clang')
+	call dein#add('freitass/todo.txt-vim')
+	call dein#add('simeji/winresizer')
 
 	call dein#end()
 	call dein#save_state()
