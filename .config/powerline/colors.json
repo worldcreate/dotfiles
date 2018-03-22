@@ -52,8 +52,9 @@
 		"gray90": 254,
 
 		"gray70": [249, "b3b3b3"],
-		"back": [249, "161821"],
-		"front": [249, "89B8C2"],
+		"iceberg:back": [249, "444B71"],
+		"iceberg:front": [249, "89B8C2"],
+		"iceberg:purple": [3, "A093C7"],
 
 		"lightyellowgreen": 106,
 		"gold3": 178,
