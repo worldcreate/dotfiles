@@ -55,6 +55,8 @@
 		"iceberg:back": [249, "3D425B"],
 		"iceberg:front": [249, "89B8C2"],
 		"iceberg:purple": [3, "A093C7"],
+		"iceberg:green": [2, "B4BE82"],
+		"iceberg:darkblack": [0, "3D425B"],
 
 		"lightyellowgreen": 106,
 		"gold3": 178,
