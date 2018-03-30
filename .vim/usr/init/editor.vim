@@ -34,3 +34,7 @@ set nocompatible
 
 " 編集中のファイルも切り替えれるようになる
 set hidden
+
+" 水平スクロールの刻み幅(nowrap中に適応される)
+set sidescroll=5
+
