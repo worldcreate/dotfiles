@@ -5,6 +5,7 @@ colorscheme iceberg
 set backspace=indent,eol,start
 
 set hlsearch
+set incsearch
 set ignorecase
 set number
 set ruler
