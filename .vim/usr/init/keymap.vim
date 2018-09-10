@@ -16,6 +16,9 @@ nnoremap <C-o> o<ESC>
 " insert modeで文途中で改行を挿入
 inoremap <C-o> <ESC>o
 
+" normal modeでCtrl+tを遷移元に戻れるように
+nnoremap <C-t> <C-o>
+
 
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<S-TAB>"
