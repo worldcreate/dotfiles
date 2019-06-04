@@ -49,5 +49,9 @@
 			"theme": "default",
 			"update_interval": 2
 		}
-	}
+	},
+	"paths": [
+		"~/.config/powerline"
+	],
+	"log_file": "/tmp/powerline.log"
 }
