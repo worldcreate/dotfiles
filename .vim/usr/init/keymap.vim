@@ -6,6 +6,8 @@ noremap : ;
 
 " <Leader> をspaceキーに割り当てる
 let mapleader = "\<Space>"
+" <LocalLeader>を_に割り当てる
+let maplocalleader = "\<Space>"
 
 " normal modeでEnterで改行を挿入
 nnoremap <CR> i<CR><ESC>

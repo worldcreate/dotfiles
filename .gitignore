@@ -1,3 +1,4 @@
 .vim/bundle/*
 *.swp
 .zsh/.zplug/
+.config/nvim/bundle/*

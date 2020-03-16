@@ -25,7 +25,7 @@ set cursorline
 set encoding=utf-8
 
 set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+set listchars=tab:»-,space:-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
 set laststatus=2
 set t_Co=256
 
@@ -39,3 +39,9 @@ set hidden
 " 水平スクロールの刻み幅(nowrap中に適応される)
 set sidescroll=5
 
+" 行末スペースをハイライトする
+augroup HighlightTrailingSpaces
+  autocmd!
+  autocmd VimEnter,WinEnter,ColorScheme * highlight TrailingSpaces term=underline guibg=Red ctermbg=Red
+  autocmd VimEnter,WinEnter * match TrailingSpaces /\s\+$/
+augroup END
