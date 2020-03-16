@@ -1,40 +1,24 @@
 [[plugins]]
-repo = 'Shougo/context_filetype.vim'
+repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
-repo = 'Shougo/neosnippet.vim'
-on_event = 'InsertCharPre'
-on_ft = 'snippet'
-depends = 'context_filetype.vim'
-hook_add = '''
-source ~/.config/nvim/plugins/neosnippet.rc.vim
-'''
+repo = 'prabirshrestha/vim-lsp'
 
 [[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete.vim'
+
+[[plugins]]
+repo = 'prabirshrestha/asyncomplete-lsp.vim'
+
 
 [[plugins]]
 repo = 'Shougo/deoplete.nvim'
-depends = 'context_filetype.vim'
-on_event = "InsertEnter"
-hook_add = '''
-source ~/.config/nvim/plugins/deoplete.rc.vim
-'''
 
-[[plugins]]
-repo = 'autozimu/LanguageClient-neovim'
-rev = 'next'
-build = 'bash install.sh'
-hook_add = '''
-source ~/.config/nvim/plugins/LanguageClient-neovim.rc.vim
-'''
-
-[[plugins]]
-repo = 'rust-lang/rust.vim'
-on_ft = 'rust'
-hook_add = '''
-source ~/.config/nvim/plugins/rust.rc.vim
-'''
+[[pluigns]]
+repo = 'lighttiger2505/deoplete-vim-lsp'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -53,3 +37,6 @@ source ~/.config/nvim/plugins/nerdtree.rc.vim
 
 [[plugins]]
 repo = 'jistr/vim-nerdtree-tabs'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
