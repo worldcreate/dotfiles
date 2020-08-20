@@ -1,0 +1,4 @@
+
+[[plugins]]
+repo = 'Shougo/deoplete.nvim'
+

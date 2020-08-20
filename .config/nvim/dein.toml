@@ -3,9 +3,14 @@ repo = 'prabirshrestha/async.vim'
 
 [[plugins]]
 repo = 'prabirshrestha/vim-lsp'
+hook_add = ''' source ~/.config/nvim/plugins/lsp.rc.vim
+'''
 
 [[plugins]]
 repo = 'mattn/vim-lsp-settings'
+
+[[plugins]]
+repo = 'ryanolsonx/vim-lsp-typescript'
 
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete.vim'
@@ -13,17 +18,9 @@ repo = 'prabirshrestha/asyncomplete.vim'
 [[plugins]]
 repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
-
-[[plugins]]
-repo = 'Shougo/deoplete.nvim'
-
-[[pluigns]]
-repo = 'lighttiger2505/deoplete-vim-lsp'
-
 [[plugins]]
 repo = 'vim-airline/vim-airline'
-hook_add = '''
-source ~/.config/nvim/plugins/vim-airline.rc.vim
+hook_add = ''' source ~/.config/nvim/plugins/vim-airline.rc.vim
 '''
 
 [[plugins]]
@@ -39,4 +36,55 @@ source ~/.config/nvim/plugins/nerdtree.rc.vim
 repo = 'jistr/vim-nerdtree-tabs'
 
 [[plugins]]
+repo = 'Xuyuanp/nerdtree-git-plugin'
+
+[[plugins]]
 repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo  = 'prettier/vim-prettier'
+build = 'npm install'
+on_ft    = ['javascript', 'typescript', 'vue', 'css', 'scss', 'json', 'markdown']
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'tacroe/unite-mark'
+
+# jsxのsyntax用
+[[plugins]]
+repo = 'othree/yajs.vim'
+
+# jsxのsyntax用
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+
+[[plugins]]
+repo = 'w0rp/ale'
+on_cmd = ['ALELint', 'ALEToggle', 'ALEEnable', 'ALEToggleBuffer', 'ALEEnableBuffer']
+hook_add = '''
+source ~/.config/nvim/plugins/ale.rc.vim
+'''
+
+# Windowのリサイズを簡単に行えるよう
+[[plugins]]
+repo = 'simeji/winresizer'
+
+[[plugins]]
+repo = 'ctrlpvim/ctrlp.vim'
+hook_add = '''
+source ~/.config/nvim/plugins/ctrlp.vim
+'''
+
+# [[plugins]]
+# repo = 'neoclide/coc.nvim'
+# merged = 0
+# rev = 'release'
+
+
+[[pluigns]]
+repo = 'arcticicestudio/nord-vim'

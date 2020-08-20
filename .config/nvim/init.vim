@@ -1,4 +1,5 @@
-colorscheme iceberg
+" colorscheme iceberg
+colorscheme nord
 
 set backspace=indent,eol,start
 
@@ -37,7 +38,7 @@ let mapleader = "\<Space>"
 let maplocalleader = "\<Space>"
 
 " normal modeでEnterで改行を挿入
-nnoremap <CR> i<CR><ESC>
+nnoremap <C-i> i<CR><ESC>
 
 " normal modeでCtrl+oで改行を挿入
 nnoremap <C-o> o<ESC>
@@ -87,10 +88,12 @@ endif
 let g:dein#install_pax_processed = 48
 
 let s:toml_file = '~/.config/nvim/dein.toml'
+let s:toml_lazy_file = '~/.config/nvim/dein_lazy.toml'
 if dein#load_state(s:dein_dir)
     call dein#begin(s:dein_dir)
 
     call dein#load_toml(s:toml_file, {'lazy': 0})
+    call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
 
     call dein#end()
     call dein#save_state()
