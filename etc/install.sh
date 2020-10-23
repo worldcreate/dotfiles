@@ -12,7 +12,7 @@ dotfile_download() {
 		exit 1
 	else
 		if is_exists "git"; then
-			git clone $dotfile_remote_address $dotfile_path
+			git clone --recursive $dotfile_remote_address $dotfile_path
 		elif is_exists "curl" || is_exists "wget"; then
 			local tarball='https://github.com/worldcreate/dotfiles/archive/master.tar.gz'
 

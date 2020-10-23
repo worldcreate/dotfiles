@@ -1,6 +1,11 @@
 {
 	"common": {
-		"term_truecolor": "fbterm"
+		"term_truecolor": true,
+		"paths": [
+			"/Users/matsumoto/.config/powerline/"
+		],
+		"log_file": "/tmp/powerline.log",
+		"log_level": "DEBUG"
 	},
 	"ext": {
 		"ipython": {
@@ -49,9 +54,5 @@
 			"theme": "default",
 			"update_interval": 2
 		}
-	},
-	"paths": [
-		"~/.config/powerline"
-	],
-	"log_file": "/tmp/powerline.log"
+	}
 }

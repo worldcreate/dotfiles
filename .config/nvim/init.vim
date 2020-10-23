@@ -31,6 +31,8 @@ set laststatus=2
 
 set nocompatible
 
+set hidden
+
 
 " <Leader> をspaceキーに割り当てる
 let mapleader = "\<Space>"

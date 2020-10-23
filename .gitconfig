@@ -2,12 +2,28 @@
     graph=log --oneline --graph --decorate=full --all --date=short --format=\"%C(yellow)%h%C(reset) %C(magenta)[%ad]%C(reset)%C(auto)%d%C(reset) %s %C(cyan)@%an%C(reset)\"
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
 	lga = log --graph --all --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-[user]
-	email = furatsuki_fiskm@yahoo.co.jp
-	name = worldcreate
 [core]
-    editor=vim
+	quotepath=false
+	editor=vim
+	autocrlf = input
+	pager=less -r
+	excludesfile = /Users/matsumoto/.gitignore_global
 [diff]
 	tool = vimdiff
 [difftool]
 	prompt = false
+[http]
+	sslVerify = false
+[user]
+	name = matsumoto
+	email = r-matsumoto@zyyx.jp
+[includeIf "gitdir:~/projects/"]
+	path = ~/projects/.gitconfig
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+[commit]
+	template = /Users/matsumoto/.stCommitMsg

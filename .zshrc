@@ -4,9 +4,10 @@
 
 ########################################
 # 環境変数
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
 export LANG=ja_JP.UTF-8
 export TERM=xterm-256color
-export EDITOR=/usr/bin/vim
+export EDITOR=nvim
 export DOTFILES=$HOME/dotfiles
 eval `dircolors ~/.colorrc`
 
@@ -20,6 +21,7 @@ for f ($HOME/.zsh/init/*.zshrc) {source $f;}
 case ${OSTYPE} in
     darwin*)
         #Mac用の設定
+		source "$HOME/.zsh/.zshrc.macos"
         ;;
     linux*)
         #Linux用の設定
