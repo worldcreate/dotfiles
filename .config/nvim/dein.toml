@@ -1,22 +1,22 @@
 [[plugins]]
 repo = 'prabirshrestha/async.vim'
 
-[[plugins]]
-repo = 'prabirshrestha/vim-lsp'
-hook_add = ''' source ~/.config/nvim/plugins/lsp.rc.vim
-'''
-
-[[plugins]]
-repo = 'mattn/vim-lsp-settings'
+# [[plugins]]
+# repo = 'prabirshrestha/vim-lsp'
+# hook_add = ''' source ~/.config/nvim/plugins/lsp.rc.vim
+# '''
+# 
+# [[plugins]]
+# repo = 'mattn/vim-lsp-settings'
 
 [[plugins]]
 repo = 'ryanolsonx/vim-lsp-typescript'
 
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete.vim'
-
-[[plugins]]
-repo = 'prabirshrestha/asyncomplete-lsp.vim'
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete.vim'
+# 
+# [[plugins]]
+# repo = 'prabirshrestha/asyncomplete-lsp.vim'
 
 [[plugins]]
 repo = 'vim-airline/vim-airline'
@@ -80,10 +80,13 @@ hook_add = '''
 source ~/.config/nvim/plugins/ctrlp.vim
 '''
 
-# [[plugins]]
-# repo = 'neoclide/coc.nvim'
-# merged = 0
-# rev = 'release'
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+merged = 0
+rev = 'release'
+hook_add = '''
+source ~/.config/nvim/plugins/coc.vim
+'''
 
 
 [[pluigns]]
