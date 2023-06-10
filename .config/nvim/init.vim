@@ -33,6 +33,10 @@ call jetpack#add('frazrepo/vim-rainbow')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
+
+call jetpack#add('nvim-lua/plenary.nvim')
+call jetpack#add('nvim-telescope/telescope.nvim')
+
 call jetpack#end()
 
 colorscheme kanagawa
@@ -72,6 +76,11 @@ if has("nvim-0.5.0") || has("patch-8.1.1564")
 else
   set signcolumn=yes
 endif
+
+" ================================ keyconfig
+
+nnoremap <silent> rr :source $MYVIMRC<CR>
+nnoremap <silent> O :e $MYVIMRC<CR>
 
 
 " ============================== LSP
@@ -148,10 +157,12 @@ let g:airline_theme='bubblegum'
 " ================================ vim-rainbow
 let g:rainbow_active = 1
 
+" ================================ fern
+
 let g:fern#renderer = "nerdfont"
 let g:fern#renderer#nerdfont#indent_markers = 1
 
-lua << EOF
-require('gitsigns').setup()
-EOF
+" ================================ gitsigns
+
+:lua require('gitsigns').setup()
 
