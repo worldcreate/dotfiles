@@ -19,6 +19,7 @@ call jetpack#add('lambdalisue/fern-git-status.vim')
 call jetpack#add('lambdalisue/nerdfont.vim')
 call jetpack#add('lambdalisue/fern-renderer-nerdfont.vim')
 
+" Git操作
 
 call jetpack#add('tpope/vim-fugitive')
 
@@ -33,6 +34,8 @@ call jetpack#add('frazrepo/vim-rainbow')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
+
+" Telescope ファジーファインダー
 
 call jetpack#add('nvim-lua/plenary.nvim')
 call jetpack#add('nvim-telescope/telescope.nvim')
