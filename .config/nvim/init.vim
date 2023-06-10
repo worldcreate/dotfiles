@@ -79,8 +79,10 @@ endif
 
 " ================================ keyconfig
 
-nnoremap <silent> rr :source $MYVIMRC<CR>
-nnoremap <silent> O :e $MYVIMRC<CR>
+let mapleader = "\<Space>"
+
+nnoremap <silent> <leader>rr :source $MYVIMRC<CR>
+nnoremap <silent> <leader>O :e $MYVIMRC<CR>
 
 
 " ============================== LSP
@@ -165,4 +167,10 @@ let g:fern#renderer#nerdfont#indent_markers = 1
 " ================================ gitsigns
 
 :lua require('gitsigns').setup()
+
+" ================================ telescope
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
