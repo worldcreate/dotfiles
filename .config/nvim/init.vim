@@ -1,104 +1,157 @@
-" colorscheme iceberg
-colorscheme nord
+set rtp^="/home/riku/.opam/5.0.0/share/ocp-indent/vim"
 
-set backspace=indent,eol,start
+call jetpack#begin()
 
-set hlsearch
-set incsearch
-set ignorecase
-set number
-set ruler
+call jetpack#add('prabirshrestha/vim-lsp')
+call jetpack#add('mattn/vim-lsp-settings')
+call jetpack#add('prabirshrestha/asyncomplete.vim')
+call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
 
-set tabstop=2
-set shiftwidth=2
-set expandtab
 
-set title
-set showmatch
-set autoindent
-set smartindent
-set smarttab
-set cursorline
+call jetpack#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 
+" color scheme
+call jetpack#add('rebelot/kanagawa.nvim')
+
+" ファイラー
+call jetpack#add('lambdalisue/fern.vim')
+call jetpack#add('lambdalisue/fern-git-status.vim')
+call jetpack#add('lambdalisue/nerdfont.vim')
+call jetpack#add('lambdalisue/fern-renderer-nerdfont.vim')
+
+
+call jetpack#add('tpope/vim-fugitive')
+
+call jetpack#add('darrikonn/vim-gofmt', {'do': ":GoUpdateBinaries"})
+
+call jetpack#add('editorconfig/editorconfig-vim')
+call jetpack#add('vim-airline/vim-airline')
+call jetpack#add('vim-airline/vim-airline-themes')
+
+
+call jetpack#add('frazrepo/vim-rainbow')
+
+" Git差分表示
+call jetpack#add('lewis6991/gitsigns.nvim')
+call jetpack#end()
+
+colorscheme kanagawa
+
+
+set relativenumber
+
+
+" Set internal encoding of vim, not needed on neovim, since coc.nvim using some
+" unicode characters in the file autoload/float.vim
 set encoding=utf-8
 
-set list
-set listchars=tab:»-,space:-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-set laststatus=2
-set t_Co=256
-
-set laststatus=2
-
-set nocompatible
-
+" TextEdit might fail if hidden is not set.
 set hidden
 
+" Some servers have issues with backup files, see #649.
+set nobackup
+set nowritebackup
 
-" <Leader> をspaceキーに割り当てる
-let mapleader = "\<Space>"
-" <LocalLeader>を_に割り当てる
-let maplocalleader = "\<Space>"
+" Give more space for displaying messages.
+set cmdheight=2
 
-" normal modeでEnterで改行を挿入
-nnoremap <C-i> i<CR><ESC>
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
 
-" normal modeでCtrl+oで改行を挿入
-nnoremap <C-o> o<ESC>
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
 
-" insert modeで文途中で改行を挿入
-inoremap <C-o> <ESC>o
+set mouse=
 
-" ======================== ウィンドウ関連のkeymap ========================
-nnoremap s <Nop>
-nnoremap sj <C-w>j
-nnoremap sk <C-w>k
-nnoremap sl <C-w>l
-nnoremap sh <C-w>h
-nnoremap sJ <C-w>J
-nnoremap sK <C-w>K
-nnoremap sL <C-w>L
-nnoremap sH <C-w>H
-nnoremap sn gt
-nnoremap sp gT
-nnoremap st :<C-u>tabnew<CR>
-nnoremap ss :<C-u>sp<CR>
-nnoremap sv :<C-u>vs<CR>
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
 
 
-" ===========
-" Plugins
-" ===========
+" ============================== LSP
+"
 
-augroup PluginInstall
-    autocmd!
-    autocmd VimEnter * if dein#check_install() | call dein#install() | endif
+if executable('haskell-language-server-wrapper')
+    au User lsp_setup call lsp#register_server({
+      \ 'name': 'haskell-ls',
+      \ 'cmd': { server_info->['haskell-language-server-wrapper', '--lsp']},
+      \ 'root_uri':{server_info->lsp#utils#path_to_uri(
+      \    lsp#utils#find_nearest_parent_file_directory(
+      \      lsp#utils#get_buffer_path(),
+      \      ['.cabal', 'stack.yaml', 'cabal.project', 'package.yaml', 'hie.yaml', '.git'],
+      \    ))},
+      \ 'allowlist': ['haskell', 'lhaskell'],
+      \ })
+endif
+
+if executable('rust-analyzer')
+  au User lsp_setup call lsp#register_server({
+        \   'name': 'Rust Language Server',
+        \   'cmd': {server_info->['rust-analyzer']},
+        \   'whitelist': ['rust'],
+        \   'initialization_options': {
+        \     'cargo': {
+        \       'buildScripts': {
+        \         'enable': v:true,
+        \       },
+        \     },
+        \     'procMacro': {
+        \       'enable': v:true,
+        \     },
+        \   },
+        \ })
+endif
+
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    if exists('+tagfunc') | setlocal tagfunc=lsp#tagfunc | endif
+    nmap <buffer> gd <plug>(lsp-definition)
+    nmap <buffer> gs <plug>(lsp-document-symbol-search)
+    nmap <buffer> gS <plug>(lsp-workspace-symbol-search)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gi <plug>(lsp-implementation)
+    nmap <buffer> gt <plug>(lsp-type-definition)
+    nmap <buffer> <leader>rn <plug>(lsp-rename)
+    nmap <buffer> [g <plug>(lsp-previous-diagnostic)
+    nmap <buffer> ]g <plug>(lsp-next-diagnostic)
+    nmap <buffer> K <plug>(lsp-hover)
+    nnoremap <buffer> <expr><c-f> lsp#scroll(+4)
+    nnoremap <buffer> <expr><c-d> lsp#scroll(-4)
+
+    let g:lsp_format_sync_timeout = 1000
+    let g:lsp_inlay_hints_enabled = 1
+    autocmd! BufWritePre *.rs,*.go call execute('LspDocumentFormatSync')
+
+    " refer to doc to add more commands
+endfunction
+
+augroup lsp_install
+    au!
+    " call s:on_lsp_buffer_enabled only for languages that has the server registered.
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
-command! -nargs=0 PluginUpdate call dein#update()
 
-let s:dein_dir = expand('$HOME/.config/nvim/bundle/dein')
+" ================================ vim-airline
+let g:ariline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
-if &runtimepath !~# '/dein.vim'
-    let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo.dein.vim'
+let g:airline_theme='bubblegum'
 
-    if !isdirectory(s:dein_repo_dir)
-        execute printf('!git clone %s %s', 'https://github.com/Shougo/dein.vim', s:dein_repo_dir)
-    endif
 
-    execute 'set runtimepath^=' . s:dein_repo_dir
-endif
+" ================================ vim-rainbow
+let g:rainbow_active = 1
 
-let g:dein#install_pax_processed = 48
+let g:fern#renderer = "nerdfont"
+let g:fern#renderer#nerdfont#indent_markers = 1
 
-let s:toml_file = '~/.config/nvim/dein.toml'
-let s:toml_lazy_file = '~/.config/nvim/dein_lazy.toml'
-if dein#load_state(s:dein_dir)
-    call dein#begin(s:dein_dir)
+lua << EOF
+require('gitsigns').setup()
+EOF
 
-    call dein#load_toml(s:toml_file, {'lazy': 0})
-    call dein#load_toml(s:toml_lazy_file, {'lazy': 1})
-
-    call dein#end()
-    call dein#save_state()
-endif
-
-filetype plugin indent on
