@@ -170,6 +170,7 @@ let g:fern#renderer#nerdfont#indent_markers = 1
 " ================================ gitsigns
 
 :lua require('gitsigns').setup()
+set signcolumn=yes
 
 " ================================ telescope
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
