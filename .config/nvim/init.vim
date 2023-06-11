@@ -45,6 +45,7 @@ call jetpack#end()
 colorscheme kanagawa
 
 
+set number
 set relativenumber
 
 
