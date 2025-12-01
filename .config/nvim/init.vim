@@ -93,8 +93,6 @@ let mapleader = "\<Space>"
 
 nnoremap <silent> <leader>rr :source $MYVIMRC<CR>
 nnoremap <silent> <leader>O :e $MYVIMRC<CR>
-nnoremap <silent> <leader>T :make! test<CR>
-nnoremap <silent> <leader>E :Oil<CR>
 
 
 " ============================== LSP
@@ -169,7 +167,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 lua << EOF
   require("oil").setup()
 EOF
-nnoremap <silent> <leader>e <cmd>Oil<cr>
+nnoremap <silent> <leader>E :Oil<CR>
 
 " ================================ 自作status line
 let s:file_fg='RoyalBlue3'
