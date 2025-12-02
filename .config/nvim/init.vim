@@ -1,38 +1,21 @@
-set rtp^="/home/riku/.opam/5.0.0/share/ocp-indent/vim"
-
 call jetpack#begin()
 
-" call jetpack#add('prabirshrestha/vim-lsp')
-" call jetpack#add('mattn/vim-lsp-settings')
-" call jetpack#add('prabirshrestha/asyncomplete.vim')
-" call jetpack#add('prabirshrestha/asyncomplete-lsp.vim')
-
 call jetpack#add('neovim/nvim-lspconfig')
-
-call jetpack#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
 
 " color scheme
 call jetpack#add('rebelot/kanagawa.nvim')
 
+call jetpack#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+
 " ファイラー
 call jetpack#add('stevearc/oil.nvim')
-call jetpack#add('lambdalisue/fern.vim')
-call jetpack#add('lambdalisue/fern-git-status.vim')
-call jetpack#add('lambdalisue/nerdfont.vim')
-call jetpack#add('lambdalisue/fern-renderer-nerdfont.vim')
+call jetpack#add('nvim-mini/mini.nvim')
 
-" Git操作
-
-call jetpack#add('tpope/vim-fugitive')
-
-call jetpack#add('darrikonn/vim-gofmt', {'do': ":GoUpdateBinaries"})
-
+" Editor
+call jetpack#add("shellRaining/hlchunk.nvim", { 'on_event': ["BufReadPre", "BufNewFile"]})
 call jetpack#add('editorconfig/editorconfig-vim')
-" call jetpack#add('vim-airline/vim-airline')
-" call jetpack#add('vim-airline/vim-airline-themes')
-
-
-call jetpack#add('frazrepo/vim-rainbow')
+call jetpack#add('vim-denops/denops.vim')
+call jetpack#add('easymotion/vim-easymotion')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
@@ -42,14 +25,11 @@ call jetpack#add('lewis6991/gitsigns.nvim')
 call jetpack#add('nvim-lua/plenary.nvim')
 call jetpack#add('nvim-telescope/telescope.nvim')
 
-call jetpack#add('vim-denops/denops.vim')
-
-call jetpack#add('easymotion/vim-easymotion')
+call jetpack#add("akinsho/toggleterm.nvim")
 
 call jetpack#end()
 
 colorscheme kanagawa
-
 
 set number
 set relativenumber
@@ -94,7 +74,6 @@ let mapleader = "\<Space>"
 nnoremap <silent> <leader>rr :source $MYVIMRC<CR>
 nnoremap <silent> <leader>O :e $MYVIMRC<CR>
 
-
 " ============================== LSP
 
 lua << EOF
@@ -136,21 +115,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 
 EOF
 
-" ================================ vim-airline
-let g:ariline#extensions#tabline#enabled = 1
-let g:airline_powerline_fonts = 1
-
-let g:airline_theme='bubblegum'
-
-
-" ================================ vim-rainbow
-let g:rainbow_active = 1
-
-" ================================ fern
-
-let g:fern#renderer = "nerdfont"
-let g:fern#renderer#nerdfont#indent_markers = 1
-
 " ================================ gitsigns
 
 :lua require('gitsigns').setup()
@@ -162,10 +126,35 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
-" ================================ oil.nvim
 
 lua << EOF
   require("oil").setup()
+  require('mini.icons').setup()
+  require("hlchunk").setup({
+      chunk = {
+          enable = true
+      },
+      indent = {
+          enable = true
+      },
+      line_num = {
+  	enable = true
+      },
+      blank = {
+  	enable = true
+      }
+  })
+
+  require'nvim-treesitter.configs'.setup {
+    highlight = {
+      enable = true,
+    }
+  }
+
+  require("toggleterm").setup({
+    open_mapping = [[<c-\>]],
+    direction = 'float'
+  })
 EOF
 nnoremap <silent> <leader>E :Oil<CR>
 
