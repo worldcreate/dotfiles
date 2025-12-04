@@ -19,6 +19,7 @@ call jetpack#add('editorconfig/editorconfig-vim')
 call jetpack#add('vim-denops/denops.vim')
 call jetpack#add('easymotion/vim-easymotion')
 call jetpack#add('simeji/winresizer')
+call jetpack#add('ysmb-wtsg/in-and-out.nvim')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
@@ -134,6 +135,15 @@ nnoremap <leader>,h <cmd>Telescope help_tags<cr>
 
 let g:winresizer_gui_enable = 1
 let g:winresizer_start_key = '<C-T>'
+
+
+
+" ================================ in-and-out.nvim
+
+lua << EOF
+  vim.keymap.set("i", "<C-CR>", function() require("in-and-out").in_and_out()
+end)
+EOF
 
 lua << EOF
   require("oil").setup()
