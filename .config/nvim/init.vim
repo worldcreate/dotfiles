@@ -5,7 +5,9 @@ call jetpack#add('neovim/nvim-lspconfig')
 " color scheme
 call jetpack#add('rebelot/kanagawa.nvim')
 
+" treesitter
 call jetpack#add('nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'})
+call jetpack#add('nvim-treesitter/nvim-treesitter-context')
 
 " ファイラー
 call jetpack#add('stevearc/oil.nvim')
@@ -155,6 +157,10 @@ lua << EOF
     highlight = {
       enable = true,
     }
+  }
+
+  require'treesitter-context'.setup{
+    enable = true,
   }
 
   require("toggleterm").setup({
