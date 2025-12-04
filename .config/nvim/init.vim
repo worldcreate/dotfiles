@@ -16,6 +16,7 @@ call jetpack#add("shellRaining/hlchunk.nvim", { 'on_event': ["BufReadPre", "BufN
 call jetpack#add('editorconfig/editorconfig-vim')
 call jetpack#add('vim-denops/denops.vim')
 call jetpack#add('easymotion/vim-easymotion')
+call jetpack#add('simeji/winresizer')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
@@ -126,6 +127,11 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 
+
+" ================================ winresizer
+
+let g:winresizer_gui_enable = 1
+let g:winresizer_start_key = '<C-T>'
 
 lua << EOF
   require("oil").setup()
