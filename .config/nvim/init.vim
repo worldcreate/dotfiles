@@ -37,6 +37,7 @@ colorscheme kanagawa
 
 set number
 set relativenumber
+set cursorline
 
 
 " Set internal encoding of vim, not needed on neovim, since coc.nvim using some
