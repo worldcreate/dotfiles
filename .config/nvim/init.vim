@@ -20,7 +20,8 @@ call jetpack#add('vim-denops/denops.vim')
 call jetpack#add('easymotion/vim-easymotion')
 call jetpack#add('simeji/winresizer')
 call jetpack#add('ysmb-wtsg/in-and-out.nvim')
-call jetpack#add("lukas-reineke/virt-column.nvim")
+call jetpack#add('lukas-reineke/virt-column.nvim')
+call jetpack#add('tpope/vim-surround')
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
