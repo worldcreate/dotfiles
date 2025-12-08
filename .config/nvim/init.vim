@@ -20,6 +20,7 @@ call jetpack#add('vim-denops/denops.vim')
 call jetpack#add('easymotion/vim-easymotion')
 call jetpack#add('simeji/winresizer')
 call jetpack#add('ysmb-wtsg/in-and-out.nvim')
+call jetpack#add("lukas-reineke/virt-column.nvim")
 
 " Git差分表示
 call jetpack#add('lewis6991/gitsigns.nvim')
@@ -205,6 +206,10 @@ lua << EOF
   end
 
   vim.cmd('autocmd! TermOpen term://* lua set_terminal_keymaps()')
+
+  require("virt-column").setup({
+    virtcolumn="120"
+  })
 EOF
 nnoremap <silent> <leader>E :Oil<CR>
 
