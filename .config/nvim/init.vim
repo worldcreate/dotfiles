@@ -117,6 +117,27 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>ff', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+    end
+
+    if client:supports_method("textDocument/inlineCompletion") then
+      vim.lsp.inline_completion.enable(true, { bufnr = buf })
+      vim.keymap.set("i", "<Tab>", function()
+        if not vim.lsp.inline_completion.get() then
+          return "<Tab>"
+        end
+        -- close the completion popup if it's open
+        if vim.fn.pumvisible() == 1 then
+          return "<C-e>"
+        end
+      end, {
+        expr = true,
+        buffer = buf,
+        desc = "Accept the current inline completion",
+      })
+    end
   end,
 })
 
